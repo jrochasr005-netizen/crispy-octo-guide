@@ -215,6 +215,7 @@ def run(config_path: str, platform_keys: list[str] | None, dry_run: bool) -> int
                 "created_at": datetime.now(timezone.utc).isoformat(),
                 "model": "dry-run" if dry_run else MODEL,
                 "product": product.get("name"),
+                "affiliate_url": link,
                 "platform": platform.key,
                 "niche": niche,
                 "draft": draft.model_dump(),

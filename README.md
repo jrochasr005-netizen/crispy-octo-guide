@@ -56,7 +56,29 @@ python -m affiliate_engine.review
 # See status counts / dump approved posts:
 python -m affiliate_engine.review --list
 python -m affiliate_engine.review --approved
+
+# Schedule approved drafts at a safe cadence -> CSV for Buffer/Publer/Metricool:
+python -m affiliate_engine.schedule
+python -m affiliate_engine.schedule --start 2026-06-15 --out posts.csv
 ```
+
+The scheduler spreads approved posts across days so no platform exceeds its safe
+posts/day (e.g. X capped at 4, Instagram at 2), assigns sensible time slots, marks
+the drafts `scheduled`, and writes a CSV you bulk-import into your scheduler. It
+does **not** post for you — that final step stays in a compliant, official-API
+scheduler at a human pace.
+
+## Tests
+
+```bash
+pip install pytest
+python -m pytest -q
+```
+
+The suite guards the compliance-critical rules: every rendered post carries an
+FTC disclosure, X stays within 280 characters, the Instagram disclosure sits
+above the "more" fold, hostile platforms (Reddit/LinkedIn) are refused, and the
+cadence caps are honored.
 
 ## Adding a new niche
 

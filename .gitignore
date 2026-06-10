@@ -4,6 +4,10 @@ review_queue/*.json
 # Your real config with affiliate IDs — copy from config.example.json
 config.json
 
+# Scheduler exports (contain your real affiliate URLs)
+*.csv
+schedule.csv
+
 # Python
 __pycache__/
 *.pyc
