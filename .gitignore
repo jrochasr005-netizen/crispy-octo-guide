@@ -1,0 +1,12 @@
+# Generated drafts (may contain your real affiliate URLs) — keep out of git
+review_queue/*.json
+
+# Your real config with affiliate IDs — copy from config.example.json
+config.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env

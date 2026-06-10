@@ -1,0 +1,21 @@
+{
+  "niche": "AI tools / SaaS",
+  "brand_voice": "Honest, practical, a little nerdy. Talks like a real user who has tested the tool, not a salesperson. Mentions tradeoffs.",
+  "default_platforms": ["instagram", "tiktok", "youtube", "pinterest", "x"],
+  "products": [
+    {
+      "name": "Mangools",
+      "category": "SEO toolkit (keyword research)",
+      "price": "$29/mo (entry plan)",
+      "audience": "bloggers, small businesses, and new affiliate marketers",
+      "key_benefits": [
+        "beginner-friendly keyword difficulty score",
+        "fast SERP analysis",
+        "cheaper than Ahrefs/Semrush",
+        "instant affiliate approval, 30% lifetime recurring"
+      ],
+      "context": "Good first SEO tool for people who find Ahrefs overwhelming. Limit: smaller backlink index than the big players.",
+      "affiliate_url": "https://mangools.com/?ref=YOUR_AFFILIATE_ID"
+    }
+  ]
+}
