@@ -68,6 +68,33 @@ the drafts `scheduled`, and writes a CSV you bulk-import into your scheduler. It
 does **not** post for you — that final step stays in a compliant, official-API
 scheduler at a human pace.
 
+## Posting via Postiz (recommended last mile)
+
+[Postiz](https://postiz.com) schedules and publishes to your connected social
+accounts through official platform connections — the compliant way to post. This
+connector pushes approved drafts straight into Postiz.
+
+```bash
+# 1. Set your Postiz Public API key PRIVATELY (never in a file or chat):
+export POSTIZ_API_KEY=your-postiz-public-api-key
+
+# 2. See your connected accounts and their IDs:
+python -m affiliate_engine.postiz --list
+
+# 3. Put those IDs in config.json under "postiz_channels".
+
+# 4. PREVIEW what would be sent (nothing posts):
+python -m affiliate_engine.postiz --channels config.json
+
+# 5. Actually queue them in Postiz:
+python -m affiliate_engine.postiz --channels config.json --send
+```
+
+> **Two different keys — don't mix them up.** `POSTIZ_API_KEY` is Postiz's own
+> Public API key (Settings → Public API), used to push posts in. An OpenAI/AI key
+> you may have pasted *inside* Postiz for its writing feature is unrelated and is
+> not used here. This tool's own writing uses your `ANTHROPIC_API_KEY`.
+
 ## Tests
 
 ```bash

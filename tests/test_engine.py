@@ -99,5 +99,27 @@ def test_assign_times_spreads_over_days_when_cap_exceeded():
     assert sum(1 for t in times if t.date() == start) == 4
 
 
+# --- postiz integration (no network) -------------------------------------
+
+def test_postiz_payload_schedules_when_time_present():
+    from affiliate_engine import postiz
+    rec = {
+        "scheduled_for": "2026-06-15T08:00:00",
+        "rendered": {"text": "#ad great tool https://x.com/?ref=ID"},
+    }
+    payload = postiz._build_payload(rec, "channel-123")
+    assert payload["type"] == "schedule"
+    assert payload["date"] == "2026-06-15T08:00:00"
+    assert payload["posts"][0]["integration"]["id"] == "channel-123"
+    assert payload["posts"][0]["value"][0]["content"].startswith("#ad")
+
+
+def test_postiz_payload_falls_back_to_draft_without_time():
+    from affiliate_engine import postiz
+    rec = {"rendered": {"text": "#ad hello"}}
+    payload = postiz._build_payload(rec, "channel-123")
+    assert payload["type"] == "draft"
+
+
 if __name__ == "__main__":
     raise SystemExit(pytest.main([__file__, "-q"]))

@@ -2,6 +2,14 @@
   "niche": "AI tools / SaaS",
   "brand_voice": "Honest, practical, a little nerdy. Talks like a real user who has tested the tool, not a salesperson. Mentions tradeoffs.",
   "default_platforms": ["instagram", "tiktok", "youtube", "pinterest", "x"],
+  "_postiz_note": "Run `python -m affiliate_engine.postiz --list` to get your account IDs, then fill these in. Leave empty until then.",
+  "postiz_channels": {
+    "instagram": "",
+    "tiktok": "",
+    "youtube": "",
+    "pinterest": "",
+    "x": ""
+  },
   "products": [
     {
       "name": "Mangools",
